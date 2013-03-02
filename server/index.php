@@ -21,7 +21,7 @@
         {
             for($i = 1; $i <= 16; $i += 1)
             {
-                $short_url = $this->baseDir().'/'.generate_id($i);
+                $short_url = $this->baseDir().generate_id($i);
             
                 $q = sprintf("INSERT INTO urls
                               SET short_url='%s', long_url='%s'",
