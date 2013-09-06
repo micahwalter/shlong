@@ -1,0 +1,9 @@
+<h1>Shlong</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="/shorten/" method="post">
+{% csrf_token %}
+<input type="text" name="url" value="" placeholder="Enter a URL to shorten here" style="width:70%;" /><br />
+<input type="submit" value="MAKE ME SHORT!" />
+</form>
