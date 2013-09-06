@@ -1,1 +1,1 @@
-web: gunicorn shlong.wsgi
+web: newrelic-admin run-program gunicorn shlong.wsgi
