@@ -5,9 +5,8 @@ This is a django-itized version of shlong. Because, I'm a little bored tonight.
 
 You can deploy this on to [Heroku](http://heroku.com) pretty easily. 
 
-Just do the following commands
+Just clone the shlong repository and do the following commands
 
-    $ git clone https://github.com/micahwalter/shlong.git  ( or your own fork )
     $ git checkout shlong-django ( this branch )
     $ cd shlong ( or whever you put it )
     $ heroku create
