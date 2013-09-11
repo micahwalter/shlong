@@ -18,10 +18,14 @@ def shorten(request):
 			s = ShlongUrl(short_url=short_url, long_url=long_url)
 			s.save()
 		
-		hostname = request.META['HTTP_HOST']		
+		host = request.META['HTTP_HOST']
+		
+		if host.startswith('www.'):
+			host = host[4:]	
+					
 		context = {'long_url': long_url,
 				   'short_url': short_url,
-				   'hostname':hostname }
+				   'hostname':host }
 		return render(request, 'shlong_urls/shorten.html', context)
 
 def get_long_url(request, short_url):
