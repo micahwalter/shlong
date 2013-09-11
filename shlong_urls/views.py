@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from shlong_urls.models import ShlongUrl
-import random
+import random, re
 
 def index(request):
 	context = {}
@@ -12,7 +12,11 @@ def shorten(request):
 	except (KeyError, ShlongUrl.DoesNotExist):
 		return redirect('/')
 	else:
+		if not re.match(r'http(s?)\:', long_url):
+			long_url = 'http://' + long_url
+			
 		short_url = get_short_url(long_url)
+		
 		if short_url is None:
 			short_url = build_url()
 			s = ShlongUrl(short_url=short_url, long_url=long_url)
